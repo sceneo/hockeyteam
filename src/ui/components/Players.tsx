@@ -15,17 +15,7 @@ const columns: GridColDef[] = [
         headerName: 'Nachname',
         width: 150,
         editable: true,
-    },
-    {
-        field: 'fullName',
-        headerName: 'Vollständiger Name',
-        sortable: false,
-        width: 220,
-        valueGetter: (params: GridValueGetterParams) =>
-            `${params.getValue(params.id, 'firstname') || ''} ${
-                params.getValue(params.id, 'lastname') || ''
-            }`,
-    },
+    }
 ];
 
 export default function Players() {
@@ -33,7 +23,7 @@ export default function Players() {
     return (
         state.players === undefined ?
             <>
-                Mach ma erst teammitglieder, Junge!
+                Es müssen zuerst Teammitglieder/Spieler hochgeladen oder simuliert werden. Bitte gehe auf Recalc.
             </>
             :
         <div style={{ height: 1200, width: '100%' }}>

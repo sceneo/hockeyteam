@@ -21,12 +21,13 @@ export default function Training() {
         state.players === undefined || state.pairs === undefined
             ?
             <>
-                Hömma, schau zu, dass Player definiert sind.
+                Es müssen zunächst Spieler und Paarungen hochgeladen oder simuliert werden.
             </>
             :
             <div>
 
-                <Select native  onChange={handleChange}>
+                <Select native  onChange={handleChange} defaultValue={""}>
+                    <option value="" disabled key={-99} >Spieler wählen</option>
                     {state.players.map(player =>
                         <option key={player.id} value={player.id}>{player.firstname} {player.lastname}</option>
                     )}

@@ -35,7 +35,7 @@ export default function Teams() {
 
         state.teams === undefined ?
             <>
-                mach ma erst teams, mann
+                Es muss zuerst ein Team hochgeladen oder simuliert werden. Bitte gehe auf Recalc.
             </>
             :
             <div style={{height: 380, width: '100%'}}>
