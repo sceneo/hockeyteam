@@ -3,11 +3,9 @@ import './App.css';
 import Menu from "./ui/components/Menu";
 
 function App() {
-  return (
-    <div className="App">
+    return (
         <Menu/>
-    </div>
-  );
+    );
 }
 
 export default App;

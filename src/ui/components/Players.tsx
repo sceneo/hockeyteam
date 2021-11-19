@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@material-ui/data-grid';
-import {Person} from "../../person/person";
-
-interface PlayersProps {
-    players: Person[];
-}
+import {useGlobalState} from "../GlobalStateProvider";
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -26,17 +22,23 @@ const columns: GridColDef[] = [
         sortable: false,
         width: 220,
         valueGetter: (params: GridValueGetterParams) =>
-            `${params.getValue(params.id, 'firstName') || ''} ${
-                params.getValue(params.id, 'lastName') || ''
+            `${params.getValue(params.id, 'firstname') || ''} ${
+                params.getValue(params.id, 'lastname') || ''
             }`,
     },
 ];
 
-export default function Players(props: PlayersProps) {
+export default function Players() {
+    const {state} = useGlobalState();
     return (
+        state.players === undefined ?
+            <>
+                Mach ma erst teammitglieder, Junge!
+            </>
+            :
         <div style={{ height: 1200, width: '100%' }}>
             <DataGrid
-                rows={props.players}
+                rows={state.players}
                 columns={columns}
                 pageSize={20}
                 checkboxSelection

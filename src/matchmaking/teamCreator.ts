@@ -8,10 +8,13 @@ let attempt = 0;
 let PAIRS: Pair[] = [];
 
 
-export const calculateTeams = (persons: Person[], pairs: Pair[]): Team[] => {
+export const calculateTeams = (persons: Person[] | undefined, pairs: Pair[] | undefined): Team[] => {
+    if(persons === undefined || pairs === undefined){
+        console.log("teams can not be created due to missing players or training")
+        return [];
+    }
     PAIRS = pairs;
 
-    console.log("initially setup teams")
     let teams = initiallySetupTeams(persons);
 
     return optimizeTeams(teams);

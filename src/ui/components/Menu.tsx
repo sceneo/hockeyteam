@@ -10,11 +10,11 @@ import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import {createTestPairs, createTestPersonSet} from "../../testdata/testdataCreator";
-import {calculateTeams} from "../../matchmaking/teamCreator";
 import Players from "./Players";
 import Teams from "./Teams";
 import Training from "./Training";
+import {GlobalStateProvider} from "../GlobalStateProvider";
+import Reload from "./Reload";
 
 
 interface TabPanelProps {
@@ -49,18 +49,12 @@ function a11yProps(index: any) {
 
 export default function Menu() {
     const [value, setValue] = React.useState(0);
-
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     };
 
-    const testdataPersons = createTestPersonSet();
-    const testdataPairs = createTestPairs(testdataPersons);
-    const teams = calculateTeams(testdataPersons, testdataPairs);
-
-    console.log(teams);
-
     return (
+        <GlobalStateProvider>
         <div className={'invisibleBackground'}>
             <AppBar position="sticky" color="default">
                 <Tabs
@@ -79,19 +73,19 @@ export default function Menu() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-
-
+                <Reload/>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <Teams teams={teams} />
+                <Teams />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <Players players={testdataPersons}/>
+                <Players/>
             </TabPanel>
             <TabPanel value={value} index={3}>
-                <Training players={testdataPersons} pairs={testdataPairs} />
+                <Training />
             </TabPanel>
 
         </div>
+        </GlobalStateProvider>
     );
 }

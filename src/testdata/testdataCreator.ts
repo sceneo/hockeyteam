@@ -10,10 +10,14 @@ export const createTestPersonSet= (): Person[] => {
     for(let i = 0; i < MEMBER_SIZE; i++){
         personList.push(createTestPerson(i));
     }
+    console.log(personList);
     return personList;
 }
 
-export const createTestPairs = (persons: Person[]): Pair[] => {
+export const createTestPairs = (persons: Person[] | undefined): Pair[] => {
+    if(persons === undefined){
+        return []
+    }
     var pairs : Pair[] = [];
     persons.forEach(p => {
         persons.forEach(q => {
@@ -27,7 +31,7 @@ export const createTestPairs = (persons: Person[]): Pair[] => {
             }
         })
     })
-
+    console.log(pairs);
     return pairs;
 }
 
