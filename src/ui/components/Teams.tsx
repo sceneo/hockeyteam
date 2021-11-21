@@ -30,16 +30,17 @@ const columns: GridColDef[] = [
 
 export default function Teams() {
     const {state} = useGlobalState();
+    const simplifyNumbers = (num: number): number => {
+        return Math.round(num * 100) / 100;
+    }
     return (
-
-
         state.teams === undefined ?
             <>
                 Es muss zuerst ein Team hochgeladen oder simuliert werden. Bitte gehe auf Recalc.
             </>
             :
             <div style={{height: 380, width: '100%'}}>
-                <h1>{state.teams[0].teamName} ({state.teams[0].matchingFactor})</h1>
+                <h1>{state.teams[0].teamName} ({simplifyNumbers(state.teams[0].matchingFactor)})</h1>
                 <DataGrid
                     rows={state.teams[0].members}
                     columns={columns}
@@ -48,7 +49,7 @@ export default function Teams() {
                     disableSelectionOnClick
                 />
 
-                <h1>{state.teams[1].teamName} ({state.teams[1].matchingFactor})</h1>
+                <h1>{state.teams[1].teamName} ({simplifyNumbers(state.teams[1].matchingFactor)})</h1>
                 <DataGrid
                     rows={state.teams[1].members}
                     columns={columns}
@@ -57,7 +58,7 @@ export default function Teams() {
                     disableSelectionOnClick
                 />
 
-                <h1>{state.teams[2].teamName} ({state.teams[2].matchingFactor})</h1>
+                <h1>{state.teams[2].teamName} ({simplifyNumbers(state.teams[2].matchingFactor)})</h1>
                 <DataGrid
                     rows={state.teams[2].members}
                     columns={columns}
