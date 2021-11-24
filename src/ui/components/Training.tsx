@@ -1,4 +1,4 @@
-import {useGlobalState} from "../GlobalStateProvider";
+import {useGlobalState} from "../globalstate/GlobalStateProvider";
 import {Select} from "@material-ui/core";
 import React from "react";
 import TrainingSelector from "./TrainingSelector";
@@ -14,7 +14,6 @@ export default function Training() {
             currentPlayerId: event.target.value as number,
             currentPlayerAvailable: true
         })
-        console.log("change: " + event.target.value + " registered as " + state.currentPlayerId)
     };
 
     return (

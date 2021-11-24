@@ -13,7 +13,7 @@ import Box from '@material-ui/core/Box';
 import Players from "./Players";
 import Teams from "./Teams";
 import Training from "./Training";
-import {GlobalStateProvider} from "../GlobalStateProvider";
+import {GlobalStateProvider, useGlobalState} from "../globalstate/GlobalStateProvider";
 import Reload from "./Reload";
 
 
@@ -54,7 +54,7 @@ export default function Menu() {
     };
 
     return (
-        <GlobalStateProvider>
+
         <div className={'invisibleBackground'}>
             <AppBar position="sticky" color="default">
                 <Tabs
@@ -86,6 +86,6 @@ export default function Menu() {
             </TabPanel>
 
         </div>
-        </GlobalStateProvider>
+
     );
 }

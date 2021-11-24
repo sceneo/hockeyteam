@@ -1,4 +1,4 @@
-import {Person} from "../person/person";
+import {Person} from "./person";
 
 export interface Team {
     teamName: string;

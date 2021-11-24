@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DataGrid, GridColDef } from '@material-ui/data-grid';
-import {useGlobalState} from "../GlobalStateProvider";
+import {useGlobalState} from "../globalstate/GlobalStateProvider";
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },

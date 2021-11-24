@@ -1,4 +1,4 @@
-import {Person} from "../person/person";
+import {Person} from "../matchmaking/person";
 import {Pair} from "../matchmaking/pair";
 
 const DUMMY_FIRST_NAMES = ['Heinz', 'Hans', 'Helmit', 'Klaus', 'Jeremias', 'Tobias', 'Peter', 'Klaas' , 'Jan', 'Daniel', 'Oliver', 'Elias', 'Urs','Melania','Donald','Track','Trick','Tick',];
@@ -10,7 +10,6 @@ export const createTestPersonSet= (): Person[] => {
     for(let i = 0; i < MEMBER_SIZE; i++){
         personList.push(createTestPerson(i));
     }
-    console.log(personList);
     return personList;
 }
 
@@ -31,7 +30,6 @@ export const createTestPairs = (persons: Person[] | undefined): Pair[] => {
             }
         })
     })
-    console.log(pairs);
     return pairs;
 }
 
@@ -39,7 +37,8 @@ const createTestPerson = (id: number): Person => {
     return {
         id: id,
         firstname: getFirstName(),
-        lastname: getLastName()
+        lastname: getLastName(),
+        teamintegration: 0,
     }
 }
 

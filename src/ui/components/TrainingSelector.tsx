@@ -1,8 +1,8 @@
 import {DataGrid, GridColDef} from "@material-ui/data-grid";
-import {useGlobalState} from "../GlobalStateProvider";
+import {useGlobalState} from "../globalstate/GlobalStateProvider";
 import * as React from "react";
 import {Pair} from "../../matchmaking/pair";
-import {Person} from "../../person/person";
+import {Person} from "../../matchmaking/person";
 
 interface Partner {
     id: number,
@@ -15,7 +15,7 @@ interface Partner {
 const columns: GridColDef[] = [
     {
         field: 'partnerFullName',
-        headerName: 'Vollständiger Name',
+        headerName: 'Partner',
         sortable: false,
         width: 220,
     },

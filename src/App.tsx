@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
 import Menu from "./ui/components/Menu";
+import {GlobalStateProvider} from "./ui/globalstate/GlobalStateProvider";
 
 function App() {
     return (
-        <Menu/>
+        <GlobalStateProvider>
+            <Menu/>
+        </GlobalStateProvider>
     );
 }
 
