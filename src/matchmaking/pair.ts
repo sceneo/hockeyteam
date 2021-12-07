@@ -1,7 +1,5 @@
-import {Person} from "./person";
-
 export interface Pair {
-    person1: Person;
-    person2: Person;
+    person1: number;
+    person2: number;
     matchingFactor: number;
 }

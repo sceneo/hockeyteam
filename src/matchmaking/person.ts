@@ -3,4 +3,7 @@ export interface Person {
     firstname: string;
     lastname: string;
     teamintegration: number;
+    defense: number;
+    offense: number;
+    physical: number;
 }

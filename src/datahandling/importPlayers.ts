@@ -26,9 +26,15 @@ const processText = (input: string): Person[] => {
             id: parseInt(line[0]),
             firstname: line[1],
             lastname: line[2],
-            teamintegration: 0
+            teamintegration: 0,
+            offense: importFromArrayOrReturnNullIfUndefined(line[4]),
+            physical: importFromArrayOrReturnNullIfUndefined(line[4]),
+            defense: importFromArrayOrReturnNullIfUndefined(line[3]),
         })
-
     }
     return players;
+}
+
+const importFromArrayOrReturnNullIfUndefined = (value: string | undefined): number => {
+    return value === undefined ? 0: parseInt(value);
 }

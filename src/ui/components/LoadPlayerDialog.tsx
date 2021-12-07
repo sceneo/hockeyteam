@@ -49,7 +49,7 @@ export default function LoadPlayerDialog() {
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
                         Bitte kopiere hier die Spieler als Komma-separierte Liste hinein. Das Format ist:
-                        [id], [Vorname], [Nachname]
+                        [id], [Vorname], [Nachname], [Defense], [Offense], [Physis]
                     </DialogContentText>
                     <TextField
                         id="outlined-multiline-static"

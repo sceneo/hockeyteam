@@ -24,25 +24,6 @@ export const importPairsFromString = (players: Person[] | undefined, input: stri
     return processTextFile(input, players)
 };
 
-const getPersonById = (id: number, players: Person[]) => {
-    let foundPlayer: Person | undefined = undefined;
-    players.forEach(p => {
-        if (p.id == id) {
-            foundPlayer = p;
-        }
-    })
-    return foundPlayer === undefined ? getDummyPlayer() : foundPlayer;
-}
-
-const getDummyPlayer = (): Person => {
-    return {
-        id: -1,
-        firstname: "not",
-        lastname: "found",
-        teamintegration: 0,
-    }
-}
-
 const processTextFile = (input: string, players: Person[]): Pair[] => {
     const pairs: Pair[] = [];
 
@@ -51,8 +32,8 @@ const processTextFile = (input: string, players: Person[]): Pair[] => {
         var line = lines[i].split(',');
         for (var j = 0; j < 3; j++) {
             pairs.push({
-                person1: getPersonById(parseInt(line[0]), players),
-                person2: getPersonById(parseInt(line[1]), players),
+                person1: parseInt(line[0]),
+                person2: parseInt(line[1]),
                 matchingFactor: parseFloat(line[2])
             })
         }

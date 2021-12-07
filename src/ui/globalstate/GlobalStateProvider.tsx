@@ -11,6 +11,9 @@ export interface GlobalStateInterface {
     currentPlayerAvailable: boolean;
     isOpenLoadPlayerDialog: boolean;
     isOpenLoadTrainingDialog: boolean;
+    isOpenExportPlayerDialog: boolean;
+    isOpenExportTrainingDialog: boolean;
+    isOpenExportTeamsDialog: boolean;
 }
 
 const GlobalStateContext = createContext({

@@ -1,12 +1,13 @@
 import TabPanel from "./TabPanel";
-import {AppBar, Button, Grid, Tab, Tabs} from "@material-ui/core";
+import {Box, Button, Grid, Tab, Tabs} from "@material-ui/core";
 import React from "react";
 import {useGlobalState} from "../globalstate/GlobalStateProvider";
 import {createTestPairs, createTestPersonSet} from "../../testdata/testdataCreator";
-import {importPlayers} from "../../datahandling/importPlayers";
-import {importPairs} from "../../datahandling/importPairs";
 import LoadPlayerDialog from "./LoadPlayerDialog";
 import LoadTrainingDialog from "./LoadTrainingDialog";
+import ExportPlayerDialog from "./ExportPlayerDialog";
+import ExportTrainingDialog from "./ExportTrainingDialog";
+import {isDeveloptment} from "../../testdata/isDeveloptment";
 
 
 function a11yProps(index: any) {
@@ -27,6 +28,20 @@ export default function DataSelection() {
         setState({
             ...state,
             isOpenLoadPlayerDialog: true,
+        })
+    }
+
+    const handleExportPlayers = () => {
+        setState({
+            ...state,
+            isOpenExportPlayerDialog: true,
+        })
+    }
+
+    const handleExportTraining = () => {
+        setState({
+            ...state,
+            isOpenExportTrainingDialog: true,
         })
     }
 
@@ -55,41 +70,28 @@ export default function DataSelection() {
         })
     }
 
-
-    const importPlayersFromBackend = async () => {
-        const players = await importPlayers();
-        setState({
-            ...state,
-            players
-        })
-    }
-
-    const importTrainingFromBackend = async () => {
-        const pairs = await importPairs(state.players);
-        setState({
-            ...state,
-            pairs
-        })
-    }
-
-
     return (
         <div>
-            <AppBar position="static">
+            <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                    <Tab label="Daten Import" {...a11yProps(0)} />
-                    <Tab label="Simulation/Testing" {...a11yProps(1)} />
+                    <Tab label="Import" {...a11yProps(0)} />
+                    <Tab label="Export" {...a11yProps(1)} />
+                    {isDeveloptment() ?
+                        <Tab label="Simulation/Testing" {...a11yProps(2)} />
+                        :
+                        <></>
+                    }
                 </Tabs>
-            </AppBar>
+            </Box>
             <TabPanel value={value} index={0}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <Button style={{minWidth: '30%'}} variant="contained" color="primary"
-                                onClick={() => handleImportPlayers()}>Open Players from Txt </Button>
+                        <Button style={{minWidth: '30%'}} variant="outlined" color="primary"
+                                onClick={() => handleImportPlayers()}>Spieler</Button>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button style={{minWidth: '30%'}} variant="contained" color="primary"
-                                onClick={() => handleImportPairs()}>Import Pairs from Txt </Button>
+                        <Button style={{minWidth: '30%'}} variant="outlined" color="primary"
+                                onClick={() => handleImportPairs()}>Training</Button>
                     </Grid>
                 </Grid>
             </TabPanel>
@@ -97,34 +99,38 @@ export default function DataSelection() {
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <Button style={{minWidth: '30%'}} variant="outlined" color="primary"
-                                onClick={createTestdataForPlayers}>
-                            Create Simulation Data for Players
-                        </Button>
+                                onClick={() => handleExportPlayers()}>Spieler</Button>
                     </Grid>
                     <Grid item xs={12}>
                         <Button style={{minWidth: '30%'}} variant="outlined" color="primary"
-                                onClick={createTestdataForPairs}>
-                            Create Simulation Data for Training
-                        </Button>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <Button style={{minWidth: '30%'}} variant="contained" color="primary"
-                                onClick={importPlayersFromBackend}>
-                            Import Players from fixed file
-                        </Button>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Button style={{minWidth: '30%'}} variant="contained" color="primary"
-                                onClick={importTrainingFromBackend}>
-                            Import Training from fixed file
-                        </Button>
+                                onClick={() => handleExportTraining()}>Training</Button>
                     </Grid>
                 </Grid>
             </TabPanel>
-
-            <LoadPlayerDialog />
-            <LoadTrainingDialog />
+            {isDeveloptment() ?
+                <TabPanel value={value} index={2}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <Button style={{minWidth: '30%'}} variant="outlined" color="primary"
+                                    onClick={createTestdataForPlayers}>
+                                Create Simulation Data for Players
+                            </Button>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button style={{minWidth: '30%'}} variant="outlined" color="primary"
+                                    onClick={createTestdataForPairs}>
+                                Create Simulation Data for Training
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </TabPanel>
+                :
+                <></>
+            }
+            <LoadPlayerDialog/>
+            <LoadTrainingDialog/>
+            <ExportPlayerDialog/>
+            <ExportTrainingDialog/>
         </div>
     );
 }

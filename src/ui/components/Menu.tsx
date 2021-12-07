@@ -13,7 +13,6 @@ import Box from '@material-ui/core/Box';
 import Players from "./Players";
 import Teams from "./Teams";
 import Training from "./Training";
-import {GlobalStateProvider, useGlobalState} from "../globalstate/GlobalStateProvider";
 import Reload from "./Reload";
 
 
