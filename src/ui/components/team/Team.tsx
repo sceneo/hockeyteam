@@ -1,6 +1,6 @@
 import {DataGrid, GridColDef} from "@material-ui/data-grid";
 import * as React from "react";
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
 import {Typography} from "@material-ui/core";
 
 export interface TeamProps {

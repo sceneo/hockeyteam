@@ -8,28 +8,28 @@ import {
     TextField
 } from "@material-ui/core";
 import React from "react";
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
-import {selectIsOpenLoadPlayerDialog} from "../globalstate/selectIsOpenLoadPlayerDialog";
-import {importPlayersFromString} from "../../datahandling/importPlayers";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
+import {importPairsFromString} from "../../../datahandling/importPairs";
+import {selectIsOpenLoadTrainingDialog} from "../../globalstate/selectors/selectIsOpenLoadTrainingDialog";
 
 
-export default function LoadPlayerDialog() {
+export default function LoadTrainingDialog() {
     const {state, setState} = useGlobalState();
     const [value, setValue] = React.useState("");
 
     const handleClose = () => {
         setState({
             ...state,
-            isOpenLoadPlayerDialog: false
+            isOpenLoadTrainingDialog: false
         })
     };
 
     const handleCloseAndImport = () => {
-        const players = importPlayersFromString(value);
+        const pairs = importPairsFromString(state.players,value);
         setState({
             ...state,
-            players,
-            isOpenLoadPlayerDialog: false,
+            pairs,
+            isOpenLoadTrainingDialog: false,
         })
     };
 
@@ -40,20 +40,20 @@ export default function LoadPlayerDialog() {
     return (
         <div>
             <Dialog
-                open={selectIsOpenLoadPlayerDialog(state)}
+                open={selectIsOpenLoadTrainingDialog(state)}
                 keepMounted
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Spieler Import"}</DialogTitle>
+                <DialogTitle>{"Training Import"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Bitte kopiere hier die Spieler als Komma-separierte Liste hinein. Das Format ist:
-                        [id], [Vorname], [Nachname], [Defense], [Offense], [Physis]
+                        Bitte kopiere hier die Trainings-Liste als Komma-separierte Liste hinein. Das Format ist:
+                        [id Spieler1], [id Spieler 2], [Matching Faktor]
                     </DialogContentText>
                     <TextField
                         id="outlined-multiline-static"
-                        label="Spieler"
+                        label="Training"
                         multiline
                         rows={5}
                         defaultValue={""}

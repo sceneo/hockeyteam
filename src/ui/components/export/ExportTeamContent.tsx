@@ -1,9 +1,8 @@
-import {Team} from "../../matchmaking/team";
 import {Typography} from "@material-ui/core";
 import React from "react";
-import {exportPlayers} from "../../datahandling/exportPlayers";
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
-import {Person} from "../../matchmaking/person";
+import {exportPlayers} from "../../../datahandling/exportPlayers";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
+import {Person} from "../../../matchmaking/person";
 
 
 interface ExportTeamContentProps {
@@ -52,13 +51,6 @@ export default function ExportTeamContent(props: ExportTeamContentProps) {
 
     const getPhysis = () => {
         return isCurrentTeamAvailable() ? getCurrentTeam()?.totalPhysis: "Attribute not ready"
-    }
-
-    const doesTeamExist = (): boolean => {
-        if (state.teams === undefined) {
-            return false;
-        }
-        return state.teams[props.teamId] === undefined;
     }
 
     return (

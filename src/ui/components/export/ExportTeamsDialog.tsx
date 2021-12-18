@@ -1,7 +1,7 @@
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography} from "@material-ui/core";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
 import React from "react";
-import {selectIsOpenExportTeamsDialog} from "../globalstate/selectIsOpenExportTeamsDialog";
+import {selectIsOpenExportTeamsDialog} from "../../globalstate/selectors/selectIsOpenExportTeamsDialog";
 import ExportTeamContent from "./ExportTeamContent";
 
 export default function ExportTeamsDialog() {

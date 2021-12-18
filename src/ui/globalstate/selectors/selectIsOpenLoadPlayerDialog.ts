@@ -1,4 +1,4 @@
-import {GlobalStateInterface} from "./GlobalStateProvider";
+import {GlobalStateInterface} from "../state/GlobalStateProvider";
 
 
 export const selectIsOpenLoadPlayerDialog = (state: Partial<GlobalStateInterface>): boolean => {

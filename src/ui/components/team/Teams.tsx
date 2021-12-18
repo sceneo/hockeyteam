@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Team from "./Team";
 import {Button} from "@material-ui/core";
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
-import ExportTeamsDialog from "./ExportTeamsDialog";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
+import ExportTeamsDialog from "../export/ExportTeamsDialog";
 
 export default function Teams() {
     const {state, setState} = useGlobalState();

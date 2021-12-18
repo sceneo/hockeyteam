@@ -10,9 +10,9 @@ import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Players from "./Players";
-import Teams from "./Teams";
-import Training from "./Training";
+import Players from "./team/Players";
+import Teams from "./team/Teams";
+import Training from "./training/Training";
 import Reload from "./Reload";
 
 

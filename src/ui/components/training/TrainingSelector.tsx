@@ -1,8 +1,8 @@
 import {DataGrid,  GridColDef} from "@material-ui/data-grid";
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
 import * as React from "react";
-import {Pair} from "../../matchmaking/pair";
-import {Person} from "../../matchmaking/person";
+import {Pair} from "../../../matchmaking/pair";
+import {Person} from "../../../matchmaking/person";
 
 interface Partner {
     id: number,

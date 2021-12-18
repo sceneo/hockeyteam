@@ -1,12 +1,12 @@
 import TabPanel from "./TabPanel";
 import {Box, Button, Grid, Tab, Tabs} from "@material-ui/core";
 import React from "react";
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
+import {useGlobalState} from "../globalstate/state/GlobalStateProvider";
 import {createTestPairs, createTestPersonSet} from "../../testdata/testdataCreator";
-import LoadPlayerDialog from "./LoadPlayerDialog";
-import LoadTrainingDialog from "./LoadTrainingDialog";
-import ExportPlayerDialog from "./ExportPlayerDialog";
-import ExportTrainingDialog from "./ExportTrainingDialog";
+import LoadPlayerDialog from "./import/LoadPlayerDialog";
+import LoadTrainingDialog from "./import/LoadTrainingDialog";
+import ExportPlayerDialog from "./export/ExportPlayerDialog";
+import ExportTrainingDialog from "./export/ExportTrainingDialog";
 import {isDeveloptment} from "../../testdata/isDeveloptment";
 
 

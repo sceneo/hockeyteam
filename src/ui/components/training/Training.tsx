@@ -1,4 +1,4 @@
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
 import {Select} from "@material-ui/core";
 import React from "react";
 import TrainingSelector from "./TrainingSelector";

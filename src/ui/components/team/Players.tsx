@@ -5,8 +5,8 @@ import {
     GridColDef,
     GridEditCellPropsParams,
 } from '@material-ui/data-grid';
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
-import {Person} from "../../matchmaking/person";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
+import {Person} from "../../../matchmaking/person";
 import {useState} from "react";
 
 const columns: GridColDef[] = [

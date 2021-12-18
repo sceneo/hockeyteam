@@ -1,9 +1,9 @@
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
+import {useGlobalState} from "../globalstate/state/GlobalStateProvider";
 import {calculateTeams, createRandomTeam} from "../../matchmaking/teamCreator";
 import {Button, Grid} from "@material-ui/core";
 import React from "react";
 import DataSelection from "./DataSelection";
-import {setInitialGlobalState} from "../globalstate/setInitialGlobalState";
+import {setInitialGlobalState} from "../globalstate/state/setInitialGlobalState";
 
 
 export default function Reload() {

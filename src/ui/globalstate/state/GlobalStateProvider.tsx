@@ -1,7 +1,7 @@
 import {createContext, Dispatch, SetStateAction, useContext, useState} from "react";
-import {Pair} from "../../matchmaking/pair";
-import {Person} from "../../matchmaking/person";
-import {Team} from "../../matchmaking/team";
+import {Pair} from "../../../matchmaking/pair";
+import {Person} from "../../../matchmaking/person";
+import {Team} from "../../../matchmaking/team";
 
 export interface GlobalStateInterface {
     players: Person[];

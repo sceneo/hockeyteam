@@ -6,9 +6,9 @@ import {
     DialogTitle, Typography,
 } from "@material-ui/core";
 import React from "react";
-import {useGlobalState} from "../globalstate/GlobalStateProvider";
-import {selectIsOpenExportPlayerDialog} from "../globalstate/selectIsOpenExportPlayerDialog";
-import {exportPlayers} from "../../datahandling/exportPlayers";
+import {useGlobalState} from "../../globalstate/state/GlobalStateProvider";
+import {selectIsOpenExportPlayerDialog} from "../../globalstate/selectors/selectIsOpenExportPlayerDialog";
+import {exportPlayers} from "../../../datahandling/exportPlayers";
 
 
 export default function ExportPlayerDialog() {
